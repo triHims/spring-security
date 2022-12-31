@@ -1,0 +1,10 @@
+
+security:
+  
+  
+spring:
+  security:
+    user:
+      password: password
+    ignored:
+    - "*.bundle.*"

@@ -1,14 +1,13 @@
-package com.learn.demo;
+package com.learn.demo.resource;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringLearnApplication {
+public class ResourceServerApplication {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		SpringApplication.run(SpringLearnApplication.class, args);
+		SpringApplication.run(ResourceServerApplication.class, args);
 	}
 
 }

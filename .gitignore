@@ -28,6 +28,10 @@ buildSrc/build
 /src/asciidoc/build
 spring-test/test-output/
 
+
+node_modules
+node
+
 # Maven artifacts
 pom.xml
 target/
