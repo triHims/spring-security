@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="css/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <nav>
+            <form action="/logout" method="post" >
+				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+               <input type="submit" name="Logout"  value="logout"/>
+            </form>
+        </nav>
+        <h1>Below he nav</h1>
+        <h1>Welcome to Demo app</h1>
+        <div class="container">
+            <a href="/ui/">Go to UI</a>
+        </div>
+
+    
+    </body>
+</html>

@@ -1,0 +1,22 @@
+zuul:
+  sensitive-headers:
+  routes:
+    ui:
+      url: http://localhost:8081
+      strip-prefix: true
+    resource:
+      url: http://localhost:9000
+security:
+  user:
+    password:
+      password
+  sessions: ALWAYS
+ 
+
+  
+spring:
+  session:
+    store-type: redis
+  redis:
+    host: 192.168.1.6
+    port: 7001
