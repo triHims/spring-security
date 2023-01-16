@@ -16,6 +16,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 		.formLogin().loginPage("/login").failureUrl("/login-error.html").defaultSuccessUrl("/index.html").permitAll()
       .and()
+				.authorizeRequests()
+				.antMatchers("/index.html", "/").permitAll()
+				.antMatchers("/admin/**").hasRole("ADMIN")
+				.anyRequest().authenticated()
+				.and()
         .logout()
         .logoutSuccessUrl("/login").and().csrf()
         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());

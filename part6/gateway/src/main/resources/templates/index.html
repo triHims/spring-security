@@ -18,6 +18,9 @@
         <div class="container">
             <a href="/ui/">Go to UI</a>
         </div>
+        <div th:if="${@loginController.hasRole('ROLE_ADMIN')}" class="container">
+            <a href="/admin/">Go to Admin</a>
+        </div>
 
     
     </body>

@@ -4,6 +4,9 @@ zuul:
     ui:
       url: http://localhost:8081
       strip-prefix: true
+    admin:
+      url: http://localhost:8082
+      strip-prefix: true
     resource:
       url: http://localhost:9000
 security:

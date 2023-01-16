@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +10,34 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'demo';
-  greeting:any = {};
-  
-  constructor(private http:HttpClient){
-	  http.get("/resource").subscribe(data=>this.greeting=data);
+  user: {} = {};
+
+  constructor(private appService: AppService, private http: HttpClient, private router: Router) {
+    appService.authenticate(response => {
+      this.user = response;
+      this.message();
+    })
+
   }
+  logout() {
+    this.http.post('logout', {}).subscribe(() => {
+      this.appService.authenticated = false;
+      this.router.navigateByUrl('/login')
+    });
+
+  }
+
+  message(){
+    if(!this.appService.authenticated) {
+      this.router.navigate(['/unauthenticated'])
+    } else {
+      if(this.appService.writer){
+        this.router.navigate(['/write'])
+      }
+      else {
+        this.router.navigate(['/read'])
+      }
+    }
+  }
+
 }
